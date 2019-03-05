@@ -11,7 +11,7 @@ module.exports = {
       model: 'adjs'
     },
     roundID: {
-      type:'number'
+      model: 'rounds'
     },  
     score: {
       type: 'number'
