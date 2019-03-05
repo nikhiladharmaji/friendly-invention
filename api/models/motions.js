@@ -14,7 +14,7 @@ module.exports = {
       type: 'string'
     },
     roundID: {
-      model: 'round'
+      model: 'rounds'
     }
   },
 
