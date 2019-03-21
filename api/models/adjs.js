@@ -8,7 +8,7 @@
 module.exports = {
 	attributes: {
     instID: {
-    model: 'institution'
+    model: 'institutions'
     },
     adjID: {
       type:'number'
