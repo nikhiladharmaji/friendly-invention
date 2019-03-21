@@ -8,7 +8,7 @@
 module.exports = {
 	attributes: {
    speakerID: {
-      model: 'speaker'
+      model: 'speakers'
     },
     roundID: {
       model: 'rounds'

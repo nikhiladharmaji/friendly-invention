@@ -14,6 +14,8 @@ module.exports.routes = {
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
   'GET /':                   { action: 'view-homepage-or-redirect' },
+  'GET /ping':               function(req,res){return res.send('pong');},
+  'GET /boo':                'TestController.a1',
   'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
 
   'GET /faq':                { view:   'pages/faq' },
