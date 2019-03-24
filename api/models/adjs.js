@@ -10,14 +10,19 @@ module.exports = {
     instID: {
     model: 'institutions'
     },
-    adjID: {
+
+   /* adjID: {
       type:'number'
-      },     
+      },   */ 
+
     name: {
      type:'string'
     },
-    name: {
-      type: 'string'
+
+    id: {
+    type: 'number',
+    columnName: 'adjID',
+    required: true
     }
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗

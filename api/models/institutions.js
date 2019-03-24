@@ -8,22 +8,17 @@
 module.exports = {
 	attributes: {
     
-    instID: {
-      type: 'number'
-    },
     
     name: {
       type: 'string'
     },
     
-    no_of_adjs: {
-      type:'number'
-      },
       
-     no_of_teams:
-     {
-      type:'number'
-      }
+      id: {
+    type: 'number',
+    columnName: 'instID',
+    required: true
+    }
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝

@@ -7,14 +7,19 @@
 
 module.exports = {
 	attributes: {
-    venueID: {
-      type: 'number'
-    },
+   
     name: {
       type: 'string'
     },
+
     status: {
       type:'boolean'
+    },
+    
+    id: {
+    type: 'number',
+    columnName: 'venueID',
+    required: true
     }
    
 

@@ -7,15 +7,19 @@
 
 module.exports = {
 	attributes: {
-    teamId: {
-      type: 'number'
-    },
+    
     name: {
       type: 'string'
     },
     break: {
       type:'number'
-     }
+     },
+
+    id: {
+    type: 'number',
+    columnName: 'teamId',
+    required: true
+    }
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝

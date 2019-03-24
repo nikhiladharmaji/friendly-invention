@@ -11,11 +11,15 @@ module.exports = {
     instID: {
     model:'institutions'
     },
-    speakerID: {
-      type: 'number'
-    },
+    
     name: {
       type: 'string'
+    },
+    
+    id: {
+    type: 'number',
+    columnName: 'speakerID',
+    required: true
     }
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
