@@ -6,19 +6,18 @@
  */
 
 module.exports = {
-	attributes: {
-    
+	attributes: {    
+    id: {
+      type: 'number',
+      columnName: 'teamId',
+      required: true,
+      autoIncrement: true
+    },
     name: {
       type: 'string'
     },
     break: {
       type:'number'
-     },
-
-    id: {
-    type: 'number',
-    columnName: 'teamId',
-    required: true
     }
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
