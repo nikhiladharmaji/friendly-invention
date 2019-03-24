@@ -7,14 +7,23 @@
 
 module.exports = {
 	attributes: {
-    motionID: {
-      type: 'number'
-    },
+    
     wording: {
       type: 'string'
     },
+    context:
+    {
+      type:'string'
+    },
+    
     roundID: {
       model: 'rounds'
+    },
+
+    id: {
+    type: 'number',
+    columnName: 'motionID',
+    required: true
     }
   },
 
