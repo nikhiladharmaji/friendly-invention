@@ -17,7 +17,8 @@ module.exports = {
       type: 'string'
     },
     break: {
-      type:'number'
+      type:'number',
+      allowNull: true
     }
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
