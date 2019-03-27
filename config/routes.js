@@ -26,6 +26,7 @@ module.exports.routes = {
   'GET /email/confirmed':    { view:   'pages/entrance/confirmed-email' },
 
   'GET /login':              { action: 'entrance/view-login' },
+  'GET /boo':                { view: 'pages/boo'},
   'GET /password/forgot':    { action: 'entrance/view-forgot-password' },
   'GET /password/new':       { action: 'entrance/view-new-password' },
 
@@ -65,6 +66,17 @@ module.exports.routes = {
   /*
     Teams
   */
-  'POST /api/v1/teams/add': { action: 'teams/add' }
-
+  'POST /api/v1/teams/add': { action: 'teams/add' },
+  /*
+    Adjs
+  */
+  'POST /api/v1/adjs/add': { action: 'adjs/add' },
+  /*
+    Venues
+  */
+  'POST /api/v1/venues/add': { action: 'venues/add' },
+  /*
+    Institutions
+  */
+  'POST /api/v1/institutions/add': { action: 'institutions/add' }
 };
