@@ -13,13 +13,15 @@ module.exports = {
     },
 
     status: {
-      type:'boolean'
+      type:'boolean',
+      allowNull: true
     },
     
     id: {
     type: 'number',
     columnName: 'venueID',
-    required: true
+    required: true,
+    autoIncrement: true
     }
    
 
