@@ -68,17 +68,20 @@ module.exports.routes = {
   /*
     Teams
   */
-  'POST /api/v1/teams/add': { action: 'teams/add' },
+  'POST /api/v1/teams/add-teams': { action: 'teams/add-teams' },
   /*
     Adjs
   */
-  'POST /api/v1/adjs/add': { action: 'adjs/add' },
+  'POST /api/v1/adjs/add-adjs': { action: 'adjs/add-adjs' },
+  'POST /api/v1/adjs/delete-adjs': { action: 'adjs/delete-adjs' },
   /*
     Venues
   */
-  'POST /api/v1/venues/add': { action: 'venues/add' },
+  'POST /api/v1/venues/add-venues': { action: 'venues/add-venues' },
+  'POST /api/v1/venues/delete-venues': { action: 'venues/delete-venues' },
   /*
     Institutions
   */
-  'POST /api/v1/institutions/add': { action: 'institutions/add' }
+  'POST /api/v1/institutions/add-institutions': { action: 'institutions/add-institutions' },
+  'POST /api/v1/institutions/delete-institutions': { action: 'institutions/delete-institutions' },
 };
