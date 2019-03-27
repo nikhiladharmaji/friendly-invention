@@ -16,17 +16,24 @@ module.exports = {
 
 
   fn: async function () {
-    let query = `
+    let speakerQuery = `
       SELECT s.name as name, t.name as teamName
       FROM speakers s
       INNER JOIN teams t on t.teamId = s.teamId 
     `;
-    let queryValues = []
+    let adjQuery = `
+      SELECT name 
+      FROM adjs 
+    `;
+    let QueryValues = []
+  
 
-    let speakersResult = await sails.sendNativeQuery(query, queryValues);
+    let speakersResult = await sails.sendNativeQuery(speakerQuery, QueryValues);
+    let adjsResult = await sails.sendNativeQuery(adjQuery, QueryValues); 
 
     return {
-        speakers: speakersResult['rows']
+        speakers: speakersResult['rows'],
+        adjs: adjsResult['rows']
     };
 
   }
