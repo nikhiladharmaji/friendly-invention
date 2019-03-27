@@ -11,9 +11,6 @@ module.exports = {
     model: 'institutions'
     },
 
-   /* adjID: {
-      type:'number'
-      },   */ 
 
     name: {
      type:'string'
@@ -22,7 +19,8 @@ module.exports = {
     id: {
     type: 'number',
     columnName: 'adjID',
-    required: true
+    required: true,
+    autoIncrement: true
     }
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗

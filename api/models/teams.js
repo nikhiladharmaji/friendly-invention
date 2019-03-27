@@ -19,6 +19,9 @@ module.exports = {
     break: {
       type:'number',
       allowNull: true
+    },
+    instID: {
+      model: 'institutions'
     }
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗

@@ -17,7 +17,8 @@ module.exports = {
       id: {
     type: 'number',
     columnName: 'instID',
-    required: true
+    required: true,
+    autoIncrement: true
     }
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗

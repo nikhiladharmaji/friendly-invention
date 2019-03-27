@@ -8,8 +8,9 @@
 module.exports = {
 	attributes: {
   
-    instID: {
-    model:'institutions'
+
+    teamId: {
+      model:'teams'
     },
     
     name: {
@@ -17,9 +18,10 @@ module.exports = {
     },
     
     id: {
-    type: 'number',
-    columnName: 'speakerID',
-    required: true
+      type: 'number',
+      columnName: 'speakerID',
+      required: true,
+      autoIncrement: true
     }
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
