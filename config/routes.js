@@ -36,7 +36,9 @@ module.exports.routes = {
 
   'GET /participants': { action: 'view-participants' },
   'GET /add-team': { action: 'view-add-team' },
-
+  'GET /add-institution': { action: 'view-add-institutions' },
+  'GET /add-venue': { action: 'view-add-venue' }, 
+  'GET /add-adj': { action: 'view-add-adj' },
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗

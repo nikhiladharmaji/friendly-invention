@@ -1,0 +1,21 @@
+<div id="add-institutions" v-cloak>
+  <div class="container">
+    <h1 class="text-center">Add Venue</h1>
+    <div class="add-venue-form-container">
+      <hr/>
+      <ajax-form action="addVenues" :syncing.sync="syncing" :cloud-error.sync="cloudError" :form-data="formData" :form-rules="formRules" :form-errors.sync="formErrors" @submitted="submittedForm()">
+        <div class="form-group">
+          <input type="venueName" class="form-control" placeholder="Venue name" v-model.trim="formData.venueName">
+          <div class="invalid-feedback" v-if="formErrors.venueName">Please provide a valid venue name</div>
+        </div>
+
+        <div class="form-group">
+          <ajax-button :syncing="syncing" class="btn-dark btn-lg btn-block">Add</ajax-button>
+        </div>
+      </ajax-form>
+    </div>
+  </div>
+</div>
+
+
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
