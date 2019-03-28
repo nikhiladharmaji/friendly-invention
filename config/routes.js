@@ -35,6 +35,7 @@ module.exports.routes = {
 
   'GET /participants': { action: 'view-participants' },
   'GET /add-team': { action: 'view-add-team' },
+  'GET /draw': { action: 'view-draw' },
 
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
