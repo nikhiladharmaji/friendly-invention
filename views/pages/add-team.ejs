@@ -1,0 +1,50 @@
+<div id="add-team" v-cloak>
+  <div class="container">
+    <h1 class="text-center">Add team</h1>
+    <div class="add-team-form-container">
+      <hr/>
+      <ajax-form action="addTeams" :syncing.sync="syncing" :cloud-error.sync="cloudError" :form-data="formData" :form-rules="formRules" :form-errors.sync="formErrors" @submitted="submittedForm()">
+        <div class="form-group">
+          <input type="speakerOne" class="form-control" placeholder="Team name" v-model.trim="formData.teamName">
+          <div class="invalid-feedback" v-if="formErrors.speakerOne">Please provide a valid team name</div>
+        </div>
+        <div class="form-group">
+          <input type="speakerOne" class="form-control" placeholder="Speaker One" v-model.trim="formData.speakerOneName">
+          <div class="invalid-feedback" v-if="formErrors.speakerOne">Please provide a valid speaker one</div>
+        </div>
+        <div class="form-group">
+          <input type="speakerOne" class="form-control" placeholder="Speaker Two" v-model.trim="formData.speakerTwoName">
+          <div class="invalid-feedback" v-if="formErrors.speakerTwo">Please provide a valid speaker two</div>
+        </div>
+        <div class="form-group">
+          <input type="speakerOne" class="form-control" placeholder="Speaker Three" v-model.trim="formData.speakerThreeName">
+          <div class="invalid-feedback" v-if="formErrors.speakerThree">Please provide a valid speaker three</div>
+        </div>
+
+        <div class="form-group">
+          <label >Select Institution </label>
+          <select class="form-control" v-model.trim="formData.instID">
+            <% institutions.forEach(function(insti) { %>
+              <option value="<%= insti.instID %>"><%= insti.name %></option>
+            <% }) %>
+          </select>
+        </div>
+
+<!--         <div class="dropdown form-group">
+          <button class="btn btn-block btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Institution
+          </button>
+          <div style="width: 100%" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            
+            
+          </div>
+        </div> -->
+
+        <div class="form-group">
+          <ajax-button :syncing="syncing" class="btn-dark btn-lg btn-block">Add</ajax-button>
+        </div>
+      </ajax-form>
+    </div>
+  </div>
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

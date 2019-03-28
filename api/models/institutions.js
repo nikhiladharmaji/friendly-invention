@@ -7,18 +7,14 @@
 
 module.exports = {
 	attributes: {
-    
-    
     name: {
       type: 'string'
-    },
-    
-      
-      id: {
-    type: 'number',
-    columnName: 'instID',
-    required: true,
-    autoIncrement: true
+    },      
+    id: {
+      type: 'number',
+      columnName: 'instID',
+      required: true,
+      autoIncrement: true
     }
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
