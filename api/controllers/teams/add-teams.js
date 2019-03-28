@@ -20,6 +20,12 @@ module.exports = {
       type: 'string',
       required: true
     },
+
+    speakerThreeName:{
+      type: 'string',
+      required: true
+    }, 
+    
     instID: {
       type:'number',
       required: true
@@ -35,6 +41,7 @@ module.exports = {
     let teamName = inputs.teamName;
     let speakerOneName = inputs.speakerOneName;
     let speakerTwoName = inputs.speakerTwoName;
+    let speakerThreeName = inputs.speakerThreeName;
     let instID = inputs.instID;
 
     
@@ -53,8 +60,8 @@ module.exports = {
     let teamID = result2["rows"][0]["teamId"];
 
 
-    let speakerInsertQuery = `INSERT INTO speakers (name, teamId) VALUES($1, $2),($3, $4)`;
-    let speakerInsertQueryValues = [speakerOneName, teamID, speakerTwoName, teamID];
+    let speakerInsertQuery = `INSERT INTO speakers (name, teamId) VALUES($1, $2),($3, $4),($5, $6)`;
+    let speakerInsertQueryValues = [speakerOneName, teamID, speakerTwoName, teamID, speakerThreeName, teamID];
 
     let result3 = await sails.sendNativeQuery(speakerInsertQuery, speakerInsertQueryValues);
 
