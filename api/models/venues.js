@@ -18,10 +18,10 @@ module.exports = {
     },
     
     id: {
-    type: 'number',
-    columnName: 'venueID',
-    required: true,
-    autoIncrement: true
+      type: 'number',
+      columnName: 'venueID',
+      required: true,
+      autoIncrement: true
     }
    
 

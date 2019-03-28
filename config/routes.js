@@ -26,7 +26,6 @@ module.exports.routes = {
   'GET /email/confirmed':    { view:   'pages/entrance/confirmed-email' },
 
   'GET /login':              { action: 'entrance/view-login' },
-  'GET /boo':                { view: 'pages/boo'},
   'GET /password/forgot':    { action: 'entrance/view-forgot-password' },
   'GET /password/new':       { action: 'entrance/view-new-password' },
 
@@ -36,9 +35,13 @@ module.exports.routes = {
 
   'GET /participants': { action: 'view-participants' },
   'GET /add-team': { action: 'view-add-team' },
+
   'GET /add-institution': { action: 'view-add-institutions' },
   'GET /add-venue': { action: 'view-add-venue' }, 
   'GET /add-adj': { action: 'view-add-adj' },
+
+  'GET /draw': { action: 'view-draw' },
+
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗
@@ -86,4 +89,5 @@ module.exports.routes = {
   */
   'POST /api/v1/institutions/add-institutions': { action: 'institutions/add-institutions' },
   'POST /api/v1/institutions/delete-institutions': { action: 'institutions/delete-institutions' },
+  'POST /api/v1/generate-matchups': { action: 'generate-matchups' },
 };
