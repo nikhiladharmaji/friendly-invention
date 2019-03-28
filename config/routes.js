@@ -26,7 +26,6 @@ module.exports.routes = {
   'GET /email/confirmed':    { view:   'pages/entrance/confirmed-email' },
 
   'GET /login':              { action: 'entrance/view-login' },
-  'GET /boo':                { view: 'pages/boo'},
   'GET /password/forgot':    { action: 'entrance/view-forgot-password' },
   'GET /password/new':       { action: 'entrance/view-new-password' },
 
@@ -84,4 +83,5 @@ module.exports.routes = {
   */
   'POST /api/v1/institutions/add-institutions': { action: 'institutions/add-institutions' },
   'POST /api/v1/institutions/delete-institutions': { action: 'institutions/delete-institutions' },
+  'POST /api/v1/generate-matchups': { action: 'generate-matchups' },
 };
