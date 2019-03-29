@@ -52,7 +52,6 @@ module.exports = {
         let matchAddQuery = `INSERT INTO matchups (govTeam, oppTeam, adjId, venueId) VALUES($1, $2, $3, $4)`
         let matchAddQueryValues = [govTeam, oppTeam, adj, venue];
         let matchResult = await sails.sendNativeQuery(matchAddQuery, matchAddQueryValues);
-        console.log(matchResult);
       }
 
     } else {

@@ -41,6 +41,7 @@ module.exports.routes = {
   'GET /add-adj': { action: 'view-add-adj' },
 
   'GET /draw': { action: 'view-draw' },
+  'GET /generate-draw': { action: 'view-generate-draw' },
 
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
