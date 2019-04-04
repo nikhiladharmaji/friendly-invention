@@ -25,6 +25,9 @@ module.exports = {
     },
     venueId: {
       model: 'venues'
+    },
+    roundID: {
+      model: 'rounds'
     }
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
