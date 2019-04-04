@@ -8,7 +8,15 @@ module.exports = {
 
 
   inputs: {
-
+    matchupId: {
+      type: "number"
+    },
+    govSpeakerOneId: {
+      type: "number"
+    },
+    govSpeakerOneScore: {
+      type: "string"
+    }
   },
 
 
@@ -18,6 +26,7 @@ module.exports = {
 
 
   fn: async function (inputs) {
+    console.log(inputs);  
 
     // All done.
     return;

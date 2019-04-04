@@ -36,6 +36,7 @@ module.exports = {
     let matchupQueryValues = [matchupId];
     let matchupResult = await sails.sendNativeQuery(matchupQuery, matchupQueryValues);
     let match = matchupResult['rows'][0];
+    match.matchupId = matchupId;
 
     let govTeamId = match['govTeamId'];
     let oppTeamId = match['oppTeamId'];

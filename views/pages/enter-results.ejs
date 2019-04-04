@@ -1,7 +1,139 @@
 <div id="enter-results" v-cloak>
+  <div class="container">
+    <h1 class="text-center">Enter result</h1>
+    <div class="enter-result-form-container">
+      <hr/>
+      <ajax-form action="enterResults" :syncing.sync="syncing" :cloud-error.sync="cloudError" :form-data="formData" :form-rules="formRules" :form-errors.sync="formErrors" @submitted="submittedForm()">
 
-  <h1>TODO: Implement this page.</h1>
-  <p>(See also <em>assets/styles/pages/enter-results.less</em>, <em>assets/js/pages/enter-results.page.js</em>, and <em>api/controllers/view-enter-results.js</em>.)</p>
+        <div class="row">
+          <div class="col-md-12">
+            <h2 style="text-decoration: underline;">Teams</h2>
+          </div>
+          <div class="col-md-6" style="border-right: 2px dotted #2d2d2d;">
+            <h2>
+              {{ match.govTeamName }}
+            </h2>
+            <div class="form-group row"> 
+              <label class="col-sm-3"> Prime Minister </label>
+              <div class="col-sm-7">
 
+                <select class="form-control" v-model.trim="formData.govSpeakerOneId">
+                  <% match.govSpeakers.forEach(function(speaker) { %>
+                    <option value="<%= speaker.speakerID %>"><%= speaker.name %></option>
+                  <% }) %>
+                </select>
+              </div>
+              <div class="col-sm-2">
+                <input type="govSpeakerOneScore" class="form-control" placeholder="Enter score" v-model.trim="formData.govSpeakerOneScore">
+              </div>
+            </div>
+            <div class="form-group row"> 
+              <label class="col-sm-3"> Deputy Prime Minister </label>
+              <div class="col-sm-7">
+
+                <select class="form-control" v-model.trim="formData.govSpeakerTwoId">
+                  <% match.govSpeakers.forEach(function(speaker) { %>
+                    <option value="<%= speaker.speakerID %>"><%= speaker.name %></option>
+                  <% }) %>
+                </select>
+              </div>
+              <div class="col-sm-2">
+                <input type="govSpeakerTwoScore" class="form-control" placeholder="Enter score" v-model.trim="formData.govSpeakerTwoScore">
+              </div>
+            </div>
+            <div class="form-group row"> 
+              <label class="col-sm-3"> Government Whip </label>
+              <div class="col-sm-7">
+
+                <select class="form-control" v-model.trim="formData.govSpeakerThreeId">
+                  <% match.govSpeakers.forEach(function(speaker) { %>
+                    <option value="<%= speaker.speakerID %>"><%= speaker.name %></option>
+                  <% }) %>
+                </select>
+              </div>
+              <div class="col-sm-2">
+                <input type="govSpeakerThreeScore" class="form-control" placeholder="Enter score" v-model.trim="formData.govSpeakerThreeScore">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h2>
+              {{ match.oppTeamName }} 
+            </h2>
+            <div class="form-group row"> 
+              <label class="col-sm-3"> Leader Opposition </label>
+              <div class="col-sm-7">
+
+                <select class="form-control" v-model.trim="formData.oppSpeakerOneId">
+                  <% match.oppSpeakers.forEach(function(speaker) { %>
+                    <option value="<%= speaker.speakerID %>"><%= speaker.name %></option>
+                  <% }) %>
+                </select>
+              </div>
+              <div class="col-sm-2">
+                <input type="oppSpeakerOneScore" class="form-control" placeholder="Enter score" v-model.trim="formData.oppSpeakerOneScore">
+              </div>
+            </div>
+            <div class="form-group row"> 
+              <label class="col-sm-3"> Deputy Leader Opposition </label>
+              <div class="col-sm-7">
+
+                <select class="form-control" v-model.trim="formData.oppSpeakerTwoId">
+                  <% match.oppSpeakers.forEach(function(speaker) { %>
+                    <option value="<%= speaker.speakerID %>"><%= speaker.name %></option>
+                  <% }) %>
+                </select>
+              </div>
+              <div class="col-sm-2">
+                <input type="oppSpeakerTwoScore" class="form-control" placeholder="Enter score" v-model.trim="formData.oppSpeakerTwoScore">
+              </div>
+            </div>
+            <div class="form-group row"> 
+              <label class="col-sm-3"> Opp Whip </label>
+              <div class="col-sm-7">
+
+                <select class="form-control" v-model.trim="formData.oppSpeakerThreeId">
+                  <% match.oppSpeakers.forEach(function(speaker) { %>
+                    <option value="<%= speaker.speakerID %>"><%= speaker.name %></option>
+                  <% }) %>
+                </select>
+              </div>
+              <div class="col-sm-2">
+                <input type="oppSpeakerThreeScore" class="form-control" placeholder="Enter score" v-model.trim="formData.oppSpeakerThreeScore">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 30px; text-align: center;">
+          <div class="col-md-12">
+            <h2 style="text-decoration: underline;">Adjudicator</h2>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group row">
+              <div class="col-md-6">
+                <label class="col-sm-3"> Government </label>
+                <div class="col-sm-7" style="margin: auto;">
+                  <input type="govAdjScore" class="form-control" placeholder="Enter score" v-model.trim="formData.govAdjScore">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label class="col-sm-3"> Opposition </label>
+                <div class="col-sm-7" style="margin:auto;">
+                  <input type="oppAdjScore" class="form-control" placeholder="Enter score" v-model.trim="formData.oppAdjScore">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 30px;">
+          <div class="form-group col-md-6" style="max-width: 400px; margin:auto;">
+            <ajax-button :syncing="syncing" class="btn-dark btn-lg btn-block">Add</ajax-button>
+          </div>
+        </div>
+      </ajax-form>
+    </div>
+  </div>
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
