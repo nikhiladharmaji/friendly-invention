@@ -42,6 +42,7 @@ module.exports.routes = {
 
   'GET /draw': { action: 'view-draw' },
   'GET /generate-draw': { action: 'view-generate-draw' },
+  'GET /enter-results': { action: 'view-enter-results' },
 
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
