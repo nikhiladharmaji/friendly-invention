@@ -95,4 +95,5 @@ module.exports.routes = {
   'POST /api/v1/institutions/add-institutions': { action: 'institutions/add-institutions' },
   'POST /api/v1/institutions/delete-institutions': { action: 'institutions/delete-institutions' },
   'POST /api/v1/generate-matchups': { action: 'generate-matchups' },
+  'POST /api/v1/enter-results': { action: 'enter-results' }
 };
