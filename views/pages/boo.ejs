@@ -1,0 +1,26 @@
+<h1>Add Adjudicator</h1>
+<div>
+    <input type="text" id="adjName" placeholder="Name" />
+    <input type="text" id="instID" placeholder="instID" />
+    <button id="addButton">Add</button>
+</div>
+
+<script>
+    $("#addButton").click(function(){
+        var adjName = $("#adjName").val();
+        var instID = $("#instID").val();
+        if (adjName && instID) {
+            $.post(
+                '/api/v1/adjs/add',
+                {adjName: adjName, instID:instID},
+                function () {
+                    window.location = "/faq";
+                }
+            ).fail(function(res){
+                alert("Error: " + res.getResponseHeader("error"));
+            });
+        } else {
+            alert("Please enter details");
+        }
+    });
+</script>
