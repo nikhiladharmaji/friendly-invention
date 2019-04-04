@@ -18,7 +18,7 @@ module.exports = {
 
   fn: async function () {
     let matchupsQuery = `
-      SELECT gt.name as govTeamName, ot.name as oppTeamName, a.name as adjName, v.name as venueName 
+      SELECT gt.name as govTeamName, ot.name as oppTeamName, a.name as adjName, v.name as venueName, m.matchupId
       FROM matchups m
       INNER JOIN teams as gt ON gt.teamId = m.govTeam
       INNER JOIN teams as ot ON ot.teamId = m.oppTeam

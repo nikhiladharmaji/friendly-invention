@@ -22,7 +22,7 @@
                     <td> <%= matchup.govTeamName %> </td>
                     <td> <%= matchup.oppTeamName %> </td>
                     <td> <%= matchup.adjName %> </td>
-                    <td> <a href="/draw"> <button type="button">Enter results </button> </a> </td>
+                    <td> <a href="/enter-results?matchupId=<%= matchup.matchupId %>"> Enter results </a> </td>
                 </tr>
             <% }) %>
           </tbody>
