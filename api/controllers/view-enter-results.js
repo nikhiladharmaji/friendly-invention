@@ -25,7 +25,7 @@ module.exports = {
     let matchupId = parseInt(inputs.matchupId);
     let matchupQuery = `
       SELECT gt.name as govTeamName, gt.teamId as govTeamId, ot.name as oppTeamName, ot.teamId as oppTeamId,
-      a.name as adjName, a.adjID, v.name as venueName 
+      a.name as adjName, a.adjID, v.name as venueName, m.roundID
       FROM matchups m
       INNER JOIN teams as gt ON gt.teamId = m.govTeam
       INNER JOIN teams as ot ON ot.teamId = m.oppTeam

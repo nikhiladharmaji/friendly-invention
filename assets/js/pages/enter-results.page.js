@@ -33,6 +33,7 @@ parasails.registerPage('enter-results', {
   mounted: async function() {
     this.formData.matchupId = SAILS_LOCALS.match.matchupId;
     this.formData.adjID = SAILS_LOCALS.match.adjID;
+    this.formData.roundID = SAILS_LOCALS.match.roundID;
     //…
   },
 
