@@ -7,6 +7,7 @@
 
 module.exports = {
 	attributes: {
+
    speakerID: {
       model: 'speakers'
     },
