@@ -55,9 +55,34 @@ module.exports = {
       }
 
     } else {
-      /*
-      Add logic for power matching in the future rounds
-       */
+
+      var n = 0;
+      var start = 0;
+      var i = 0;
+      var j = 0;
+
+      let sortedQuery=`SELECT teamId FROM teams ORDER BY wins DESC, cumulative DESC`;
+      let sortedQueryValues=[];
+      let sortedQueryResult = await sails.sendNativeQuery(sortedQuery, sortedQueryValues);
+
+      let countQuery=`SELECT COUNT(wins) AS count FROM teams GROUP BY wins`;
+      let countQueryValues=[];
+      let countQueryResult = await sails.sendNativeQuery(countQuery, countQueryValues);
+
+      for(i=0;i<currentRound;i++)
+      {
+
+        start = start + j + Math.ceil(n/2);
+        n=countQueryResult['rows'][i]['count'];
+        for(j=start;j<start+Math.ceil(n/2);j++)
+        {
+        let matchupInsertQuery = `INSERT INTO matchups VALUES($1,$2)`
+        let matchupInsertQueryValues = [sortedQueryResult['rows'][j]['teamId'],sortedQueryResult['rows'][j+Math.ceil(n/2)][teamId]]
+        let matchupInsertQueryResult = await sails.sendNativeQuery(matchupInsertQuery, matchupInsertQueryValues);
+        }
+
+      }
+
     }
 
     // All done.
