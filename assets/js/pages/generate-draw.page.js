@@ -42,7 +42,7 @@ parasails.registerPage('generate-draw', {
       // > (Note that we re-enable the syncing state here.  This is on purpose--
       // > to make sure the spinner stays there until the page navigation finishes.)
       this.syncing = true;
-      window.location = '/draw';
+      window.location = '/draw?roundId=' + this.formData.roundNo;
     },
   }
 });
