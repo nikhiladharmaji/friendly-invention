@@ -29,7 +29,11 @@ module.exports = {
       throw {redirect:'/welcome'};
     }
 
-    return {};
+    let currentRound = await TournamentConfig.getCurrentRound();
+
+    return {
+      currentRound: currentRound
+    };
 
   }
 
