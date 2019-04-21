@@ -4,10 +4,6 @@
     <div class="add-team-form-container">
       <hr/>
       <ajax-form action="addTeams" :syncing.sync="syncing" :cloud-error.sync="cloudError" :form-data="formData" :form-rules="formRules" :form-errors.sync="formErrors" @submitted="submittedForm()">
-        <div class="row">
-          <h2> Teams <h2>
-        </div>
-
         <div class="form-group">
           <input type="speakerOne" class="form-control" placeholder="Team name" v-model.trim="formData.teamName">
           <div class="invalid-feedback" v-if="formErrors.speakerOne">Please provide a valid team name</div>

@@ -17,9 +17,12 @@ module.exports = {
 
 
   fn: async function () {
+    let currentRound = await TournamentConfig.getCurrentRound();
 
     // Respond with view.
-    return {};
+    return {
+      currentRound: currentRound
+    };
 
   }
 
