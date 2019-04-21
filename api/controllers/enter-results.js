@@ -81,6 +81,16 @@ module.exports = {
       required: true
     },
 
+    govTeamId: {
+      type: 'number',
+      required: true
+    },
+
+    oppTeamId: {
+      type: 'number',
+      required: true
+    },
+
     adjID: {
       type: 'number',
       required: true
@@ -117,6 +127,8 @@ module.exports = {
     let oppAdjScore = inputs.oppAdjScore;
     let adjID = inputs.adjID;
     let roundID = inputs.roundID;
+    let govTeamId = inputs.govTeamId;
+    let oppTeamId = inputs.oppTeamId;
 
 
     let govScoreInsertQuery = `
@@ -131,7 +143,7 @@ module.exports = {
       govSpeakerTwoID, govSpeakerTwoScore, roundID,
       govSpeakerThreeID, govSpeakerThreeScore, roundID
     ]
-    console.log(govScoreInsertQueryValues);
+
       
     let govScoreInsertResult = await sails.sendNativeQuery(govScoreInsertQuery, govScoreInsertQueryValues);
 
@@ -147,9 +159,47 @@ module.exports = {
       oppSpeakerTwoID, oppSpeakerTwoScore, roundID,
       oppSpeakerThreeID, oppSpeakerThreeScore, roundID
     ]
-    console.log(oppScoreInsertQueryValues);
 
     let oppScoreInsertResult = await sails.sendNativeQuery(oppScoreInsertQuery, oppScoreInsertQueryValues);
+
+    /*
+    Find out which team won, and update points for the same
+     */
+
+    let oppTeamTotal = oppSpeakerOneScore + oppSpeakerTwoScore + oppSpeakerThreeScore;
+    let govTeamTotal = govSpeakerOneScore + govSpeakerTwoScore + govSpeakerThreeScore;
+
+    let winningTeamQuery = '\
+      UPDATE teams \
+      SET totalPoints = totalPoints + 1 \
+      WHERE teamId = $1  \
+    ';
+    let winningTeamQueryValues = [];
+    if(oppTeamTotal > govTeamTotal) {
+      winningTeamQueryValues = [oppTeamId];
+    } else {
+      winningTeamQueryValues = [govTeamId];
+    }
+    let teamPointUpdateResult = await sails.sendNativeQuery(winningTeamQuery, winningTeamQueryValues);
+
+    /*
+    Update cumulative speaker scores for both teams
+     */
+    let updateGovTeamCumScoreQuery = '\
+      UPDATE teams \
+      SET totalSpeaks = totalSpeaks + $1 \
+      WHERE teamId = $2 \
+    ';
+    let updateGovTeamCumScoreQueryValues = [govTeamTotal, govTeamId];
+    let updateGovTeamCumScoreResult = await sails.sendNativeQuery(updateGovTeamCumScoreQuery, updateGovTeamCumScoreQueryValues);
+
+    let updateOppTeamCumScoreQuery = '\
+      UPDATE teams \
+      SET totalSpeaks = totalSpeaks + $1 \
+      WHERE teamId = $2 \
+    ';
+    let updateOppTeamCumScoreQueryValues = [oppTeamTotal, oppTeamId];
+    let updateOppTeamCumScoreResult = await sails.sendNativeQuery(updateOppTeamCumScoreQuery, updateOppTeamCumScoreQueryValues);
 
 
     let govAdjScoreQuery = `INSERT INTO adj_scores (adjID, score, roundID) VALUES ($1, $2, $3)`;
@@ -159,6 +209,8 @@ module.exports = {
     let oppAdjScoreQuery = `INSERT INTO adj_scores (adjID, score, roundID) VALUES ($1, $2, $3)`;
     let oppAdjScoreQueryValues = [adjID, oppAdjScore, roundID];
     let oppAdjScoreResult = await sails.sendNativeQuery(oppAdjScoreQuery, oppAdjScoreQueryValues);
+
+
 
     return exits.success({
         status: "success"

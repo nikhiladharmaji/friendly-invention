@@ -34,6 +34,8 @@ parasails.registerPage('enter-results', {
     this.formData.matchupId = SAILS_LOCALS.match.matchupId;
     this.formData.adjID = SAILS_LOCALS.match.adjID;
     this.formData.roundID = SAILS_LOCALS.match.roundID;
+    this.formData.govTeamId = SAILS_LOCALS.match.govTeamId;
+    this.formData.oppTeamId = SAILS_LOCALS.match.oppTeamId;
     //…
   },
 

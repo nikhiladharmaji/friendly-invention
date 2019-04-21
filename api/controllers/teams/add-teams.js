@@ -45,8 +45,8 @@ module.exports = {
     let instID = inputs.instID;
 
     
-    let teamInsertQuery = `INSERT INTO teams (name, instID) VALUES ($1, $2)`;
-    let teamInsertQueryValues = [teamName, instID];
+    let teamInsertQuery = `INSERT INTO teams (name, instID, totalPoints, totalSpeaks) VALUES ($1, $2, $3, $4)`;
+    let teamInsertQueryValues = [teamName, instID, 0 , 0];
 
     let result = await sails.sendNativeQuery(teamInsertQuery, teamInsertQueryValues);
     
