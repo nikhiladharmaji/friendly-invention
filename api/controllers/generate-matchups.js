@@ -54,34 +54,54 @@ module.exports = {
         let matchResult = await sails.sendNativeQuery(matchAddQuery, matchAddQueryValues);
       }
 
-    } else {
+    } 
+
+    else {
 
       var n = 0;
       var start = 0;
       var i = 0;
       var j = 0;
+      var k = 0;
 
-      let sortedQuery=`SELECT teamId FROM teams ORDER BY wins DESC, cumulative DESC`;
+      let sortedQuery=`SELECT teamId FROM teams ORDER BY totalPoints DESC, totalSpeaks DESC`;
       let sortedQueryValues=[];
       let sortedQueryResult = await sails.sendNativeQuery(sortedQuery, sortedQueryValues);
 
-      let countQuery=`SELECT COUNT(wins) AS count FROM teams GROUP BY wins`;
+      let countQuery=`SELECT COUNT(totalPoints) AS count FROM teams GROUP BY totalPoints`;
       let countQueryValues=[];
       let countQueryResult = await sails.sendNativeQuery(countQuery, countQueryValues);
 
-      for(i=0;i<currentRound;i++)
+      let adjSortedQuery = `SELECT adjs.adjID AS adjID, SUM(adj_scores.score) AS score \
+                    FROM adjs INNER JOIN adj_scores \
+                    ON adjs.adjID = adj_scores.adjID  \
+                    GROUP BY adjID ORDER BY score DESC`;
+
+      let adjSortedQueryValues = [];
+      let adjSortedQueryResult = await sails.sendNativeQuery(adjSortedQuery, adjSortedQueryValues);
+
+      let venueSortedQuery = `SELECT venueID FROM venues ORDER BY venueID DESC`;
+      let venueSortedQueryValues = [];
+      let venueSortedQueryResult = await sails.sendNativeQuery(venueSortedQuery, venueSortedQueryValues);
+
+
+      for(i=0;i<roundNo;i++)
       {
 
         start = start + j + Math.ceil(n/2);
         n=countQueryResult['rows'][i]['count'];
         for(j=start;j<start+Math.ceil(n/2);j++)
         {
-        let matchupInsertQuery = `INSERT INTO matchups VALUES($1,$2)`
-        let matchupInsertQueryValues = [sortedQueryResult['rows'][j]['teamId'],sortedQueryResult['rows'][j+Math.ceil(n/2)][teamId]]
+        let matchupInsertQuery = `INSERT INTO matchups VALUES($1,$2,$3,$4,$5)`
+        let matchupInsertQueryValues = [sortedQueryResult['rows'][j]['teamId'],sortedQueryResult['rows'][j+Math.ceil(n/2)]['teamId'],adjSortedQueryResult['rows'][k],venueSortedQueryResult['rows'][k]]
         let matchupInsertQueryResult = await sails.sendNativeQuery(matchupInsertQuery, matchupInsertQueryValues);
+        k++;
         }
 
+
       }
+
+
 
     }
 
