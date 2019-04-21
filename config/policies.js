@@ -10,13 +10,12 @@
 
 module.exports.policies = {
 
-  // '*': 'is-logged-in',
+  '*': 'is-logged-in',
 
   // Bypass the `is-logged-in` policy for:
   'entrance/*': true,
-  '*': true,
   'account/logout': true,
   'view-homepage-or-redirect': true,
   'deliver-contact-form-message': true,
-
+  'view-draw': true
 };
