@@ -22,6 +22,14 @@ module.exports = {
     },
     instID: {
       model: 'institutions'
+    },
+    totalPoints: {
+      type: 'number',
+      defaultsTo: 0
+    },
+    totalSpeaks: {
+      type: 'number',
+      defaultsTo: 0
     }
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
