@@ -29,7 +29,7 @@ module.exports = {
     let matchupsResult = await sails.sendNativeQuery(matchupsQuery, matchupsQueryValues);
 
     // Respond with view.
-    return {
+    return {  
       matchups: matchupsResult['rows']
     };
 

@@ -104,7 +104,42 @@ module.exports = {
   },
 
 
+
   exits: {
+
+  },
+
+  fn: async function (inputs,exits) {
+
+   let matchupID = parseInt(inputs.matchupId);
+
+
+   let roundQuery = `SELECT roundID from matchups where matchupId = $1`;
+   let roundQueryValues = [matchupID];
+   let roundResult = await sails.sendNativeQuery(roundQuery, roundQueryValues);
+   let roundID = roundResult["rows"][0]["roundID"];
+
+   let govSpeakerOneID = inputs.govSpeakerOneId;
+   let govSpeakerTwoID = inputs.govSpeakerTwoId;
+   let govSpeakerThreeID = inputs.govSpeakerThreeId;
+
+   let govScoreInsertQuery = `INSERT INTO speaker_scores (speakerID, score, roundID) VALUES($1,$2,$3),($4,$5,$6),($7,$8,$9)`;
+   let govScoreInsertQueryValues = [govSpeakerOneID, govSpeakerOneScore, roundID, govSpeakerTwoID, govSpeakerTwoScore, roundID, govSpeakerThreeID, govSpeakerThreeScore, roundID]
+   let govScoreInsertResult = await sails.sendNativeQuery(govScoreInsertQuery, govScoreInsertQueryValues);
+
+   let oppSpeakerOneID = inputs.oppSpeakerOneId;
+   let oppSpeakerTwoID = inputs.oppSpeakerTwoId
+   let oppSpeakerThreeID = inputs.oppSpeakerThreeId;
+
+   let oppScoreInsertQuery = `INSERT INTO speaker_scores (speakerID, score, roundID) VALUES($1,$2,$3),($4,$5,$6),($7,$8,$9)`;
+   let oppScoreInsertQueryValues = [oppSpeakerOneID, oppSpeakerOneScore, roundID, oppSpeakerTwoID, oppSpeakerTwoScore, roundID, oppSpeakerThreeID, oppSpeakerThreeScore, roundID]
+   let oppScoreInsertResult = await sails.sendNativeQuery(oppScoreInsertQuery, oppScoreInsertQueryValues);
+
+   let adjQuery = `SELECT adjId from matchups WHERE matchupId = $1`;
+   let adjQueryValues = [matchupID];
+   let adjResult = await sails.sendNativeQuery(adjQuery,adjQueryValues);
+   let adjID = adjResult["rows"][0]["adjID"];
+
 
   },
 
@@ -154,6 +189,7 @@ module.exports = {
       ($4, $5, $6),
       ($7, $8, $9)
     `;
+    
     let oppScoreInsertQueryValues = [
       oppSpeakerOneID, oppSpeakerOneScore, roundID,
       oppSpeakerTwoID, oppSpeakerTwoScore, roundID,
