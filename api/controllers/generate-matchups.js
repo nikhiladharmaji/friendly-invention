@@ -84,10 +84,14 @@ module.exports = {
       let venueSortedQueryValues = [];
       let venueSortedQueryResult = await sails.sendNativeQuery(venueSortedQuery, venueSortedQueryValues);
 
+      let numMatchups = sortedQueryResult['rows'].length/2;
+
       for(i= 0; i< roundNo; i++) {
         start = start + j + Math.ceil(n/2);
         n = countQueryResult['rows'][i]['count'];
         for(j=start;j<start+Math.ceil(n/2);j++) {
+          console.log(i, j, n, start);
+          console.log([sortedQueryResult['rows'][j]['teamId'], sortedQueryResult['rows'][j+Math.ceil(n/2)]['teamId']])
           let teamsInMatch = [sortedQueryResult['rows'][j]['teamId'], sortedQueryResult['rows'][j+Math.ceil(n/2)]['teamId']];
           let shuffledTeams = _.shuffle(teamsInMatch);
 
@@ -101,6 +105,12 @@ module.exports = {
           ];
           let matchupInsertQueryResult = await sails.sendNativeQuery(matchupInsertQuery, matchupInsertQueryValues);
           k++;
+        }
+        /*
+        Break if all matchups have been generated
+         */
+        if(k === numMatchups) {
+          break;
         }
       }
     }
