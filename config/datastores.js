@@ -35,7 +35,7 @@ module.exports.datastores = {
   default: {
 
         adapter: require('sails-mysql'),
-        url: 'mysql://root:rvce1234@localhost:3306/tournament',
+        url: 'mysql://root:ramana@localhost:3306/tournament',
 
   }
 
