@@ -39,12 +39,16 @@ module.exports.routes = {
   'GET /add-institution': { action: 'view-add-institutions' },
   'GET /add-venue': { action: 'view-add-venue' }, 
   'GET /add-adj': { action: 'view-add-adj' },
+  'GET /display-adjs': { action: 'view-display-adjs' },
+  'GET /edit-adjs': { action: 'view-edit-adjs' },
+
 
   'GET /draw': { action: 'view-draw' },
   'GET /generate-draw': { action: 'view-generate-draw' },
   
   'GET /results': { action: 'view-results' },
   'GET /enter-results': { action: 'view-enter-results' },
+
 
 
 
@@ -85,6 +89,7 @@ module.exports.routes = {
   */
   'POST /api/v1/adjs/add-adjs': { action: 'adjs/add-adjs' },
   'POST /api/v1/adjs/delete-adjs': { action: 'adjs/delete-adjs' },
+  'PUT /api/v1/adjs/update-adjs': { action: 'update-adjs' },
   /*
     Venues
   */
