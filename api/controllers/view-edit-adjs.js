@@ -34,10 +34,11 @@ module.exports = {
     let adjQueryValues = [adjID];
     let adjResult = await sails.sendNativeQuery(adjQuery, adjQueryValues);
 
+
     // Respond with view.
     return {
       institutions: instResult['rows'],
-      adj: adjResult['rows']
+      adj: adjResult['rows'][0]
     };
 
   }
