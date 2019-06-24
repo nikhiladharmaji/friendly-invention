@@ -25,6 +25,12 @@ parasails.registerPage('edit-adjs', {
   //  ║  ║╠╣ ║╣ ║  ╚╦╝║  ║  ║╣
   //  ╩═╝╩╚  ╚═╝╚═╝ ╩ ╚═╝╩═╝╚═╝
   beforeMount: function() {
+    /*
+    Setting variables that are already set in case they don't get edited.
+     */
+    this.formData.instID = SAILS_LOCALS.adj.instID;
+    this.formData.adjID = SAILS_LOCALS.adj.adjID;
+    this.formData.name = SAILS_LOCALS.adj.name;
     // Attach any initial data from the server.
     _.extend(this, SAILS_LOCALS);
 
