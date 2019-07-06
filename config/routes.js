@@ -49,6 +49,11 @@ module.exports.routes = {
   'GET /results': { action: 'view-results' },
   'GET /enter-results': { action: 'view-enter-results' },
 
+  //'GET /upload-file': 'uploadFileController.index',
+  'GET /read-file': { action: 'read-file' },
+  'GET /upload-file': { action: 'view-upload-file' },
+
+
 
 
 
@@ -88,7 +93,7 @@ module.exports.routes = {
     Adjs
   */
   'POST /api/v1/adjs/add-adjs': { action: 'adjs/add-adjs' },
-  'POST /api/v1/adjs/delete-adjs': { action: 'adjs/delete-adjs' },
+  'DELETE /api/v1/adjs/delete-adjs': { action: 'adjs/delete-adjs' },
   'PUT /api/v1/adjs/update-adjs': { action: 'update-adjs' },
   /*
     Venues
@@ -101,5 +106,8 @@ module.exports.routes = {
   'POST /api/v1/institutions/add-institutions': { action: 'institutions/add-institutions' },
   'POST /api/v1/institutions/delete-institutions': { action: 'institutions/delete-institutions' },
   'POST /api/v1/generate-matchups': { action: 'generate-matchups' },
-  'POST /api/v1/enter-results': { action: 'enter-results' }
+  'POST /api/v1/enter-results': { action: 'enter-results' },
+  'POST /api/v1/upload-file': { action: 'upload-file' },
+  //'POST /upload-file/upload': 'uploadFileController.upload'
+  
 };
