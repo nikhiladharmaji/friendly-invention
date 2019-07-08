@@ -47,18 +47,20 @@ parasails.registerPage('upload-file', {
       this.formData.fileName = fileToBeUploaded;
         
     },
-      
 
-     /*clicked: async function(fileName) {
 
+     /*clicked: async function() {
+
+      this.fileName = this.$refs.fileName.name;
       $.ajax({
           url: '/api/v1/upload-file',
+          data: { fileName: this.fileName},
           type: 'POST',
           success: function(result) {
             window.location = '/';
           }
       });
-    }*/
+    },*/
 
     submittedForm: async function() {
       // Redirect to the logged-in dashboard on success.
@@ -68,4 +70,5 @@ parasails.registerPage('upload-file', {
       window.location = '/';
     },
   }
-});
+  });
+
