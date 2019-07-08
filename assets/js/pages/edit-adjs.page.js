@@ -44,6 +44,18 @@ parasails.registerPage('edit-adjs', {
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
 
+    clicked: async function(adjID) {
+
+      $.ajax({
+          url: '/api/v1/adjs/delete-adjs',
+          data: { adjID:adjID },
+          type: 'DELETE',
+          success: function(result) {
+            window.location = '/display-adjs';
+          }
+      });
+    },
+
     submittedForm: async function() {
       // Redirect to the account page on success.
       // > (Note that we re-enable the syncing state here.  This is on purpose--
