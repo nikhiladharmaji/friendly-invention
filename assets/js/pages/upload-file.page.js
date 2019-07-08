@@ -40,17 +40,14 @@ parasails.registerPage('upload-file', {
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
 
-      filesChange: async function(){
-        // handle file changes
+    filesChange: async function(){
+      // handle file changes
 
-        this.files = this.$refs.fileName.files[0];
-
-        // append the files to FormData
-        var formData = new FormData();
-        formData.append('fileName', this.files); 
-          
-        },
+      var fileToBeUploaded = this.$refs.fileName.files[0];
+      this.formData.fileName = fileToBeUploaded;
         
+    },
+      
 
      /*clicked: async function(fileName) {
 
