@@ -52,6 +52,9 @@ module.exports.routes = {
   //'GET /upload-file': 'uploadFileController.index',
   'GET /read-file': { action: 'read-file' },
   'GET /upload-file': { action: 'view-upload-file' },
+  'GET /download-file': {action: 'download-file'},
+
+
 
 
 
@@ -108,6 +111,5 @@ module.exports.routes = {
   'POST /api/v1/generate-matchups': { action: 'generate-matchups' },
   'POST /api/v1/enter-results': { action: 'enter-results' },
   'POST /api/v1/upload-file': { action: 'upload-file' },
-  //'POST /upload-file/upload': 'uploadFileController.upload'
   
 };

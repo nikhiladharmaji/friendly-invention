@@ -2915,8 +2915,10 @@ fieldset:disabled a.btn {
 }
 
 .btn-block {
-  display: block;
-  width: 100%;
+    display: block;
+    width: 36%;
+    margin: auto;
+    max-width: 50%;
 }
 
 .btn-block + .btn-block {
