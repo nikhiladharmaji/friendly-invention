@@ -1,16 +1,11 @@
-# myproject
+# Tabs
 
-a [Sails v1](https://sailsjs.com) application
-
+This is a [Sails v1](https://sailsjs.com) application
+I built this application to generate matchups for a debate tournament. 
 
 ### Links
 
-+ [Sails framework documentation](https://sailsjs.com/get-started)
-+ [Version notes / upgrading](https://sailsjs.com/documentation/upgrading)
-+ [Deployment tips](https://sailsjs.com/documentation/concepts/deployment)
-+ [Community support options](https://sailsjs.com/support)
-+ [Professional / enterprise options](https://sailsjs.com/enterprise)
-
+[View](http://tabs.nikhila.in/)
 
 ### Version info
 
@@ -26,3 +21,9 @@ This project's boilerplate is based on an expanded seed app provided by the [Sai
 Note:  Generators are usually run using the globally-installed `sails` CLI (command-line interface).  This CLI version is _environment-specific_ rather than app-specific, thus over time, as a project's dependencies are upgraded or the project is worked on by different developers on different computers using different versions of Node.js, the Sails dependency in its package.json file may differ from the globally-installed Sails CLI release it was originally generated with.  (Be sure to always check out the relevant [upgrading guides](https://sailsjs.com/upgrading) before upgrading the version of Sails used by your app.  If you're stuck, [get help here](https://sailsjs.com/support).)
 -->
 
+### Build
+
+```
+git clone https://github.com/nikhiladharmaji/friendly-invention.git
+sails lift
+```
